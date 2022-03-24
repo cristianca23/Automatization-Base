@@ -4,14 +4,23 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.thucydides.core.annotations.Steps;
+import steps.ValidationSteps;
 
 public class StepsDefinitions {
 
-    @Given("^Autentico en saucedemo con usuario standard_user y contraseña secret_sauce$")
-    public void autentico_en_saucedemo_con_usuario_standard_user_y_contraseña_secret_sauce() throws Exception {
+
+    @Steps
+    ValidationSteps validationSteps;
+
+    @Given("^Autentico en saucedemo con usuario \"([^\"]*)\" y contraseña \"([^\"]*)\"$")
+    public void autenticoEnSaucedemoConUsuarioYContraseña(String Usuario, String Clave) throws Exception {
         // Write code here that turns the phrase above into concrete actions
+        validationSteps.login_saucedemo(Usuario, Clave);
         throw new PendingException();
     }
+
+
 
 
     @When("^Agrego items al carrito de compras y hago click en ShoppingCart$")

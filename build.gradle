@@ -1,4 +1,4 @@
-group 'choucair-pom'
+group 'Automatization-Base'
 version '1.0'
 
 repositories {
@@ -76,20 +76,7 @@ dependencies {
     testImplementation('junit:junit:4.13')
 
 
-    jacoco {
-        toolVersion = "0.8.5"
-        reportsDir = file("$buildDir/customJacocoReportDir")
-    }
 
-    jacocoTestReport {
-        group = "Reporting"
-        reports {
-            xml.enabled true
-            csv.enabled false
-            html.destination file("${buildDir}/reports/coverage")
-            xml.destination file("${buildDir}/reports/jacoco.xml")
-        }
-    }
 
     test {
         useJUnit {
@@ -99,20 +86,8 @@ dependencies {
             systemProperties System.getProperties()
         }
 
-        jacoco {
-            destinationFile = file("$buildDir/reports/jacoco.xml")
-            destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
-            classDumpDir = file("$buildDir/jacoco/classpathdumps")
-        }
+
     }
 
-    jacocoTestCoverageVerification {
-        violationRules {
-            rule {
-                limit {
-                    minimum = 0.5
-                }
-            }
-        }
-    }
+
 }
