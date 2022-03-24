@@ -12,6 +12,10 @@ public class ValidationSteps {
         saucedemoLoginPage.open();
 
         saucedemoLoginPage.IngresarDatos(strUsuario, strPass);
+
+        saucedemoLoginPage.verificarHome();
     }
+
+
 
 }

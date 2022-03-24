@@ -5,12 +5,10 @@ Feature: Compra de articulos en la pagina de Saucedemo
   de su compra
 
   @CasoExitoso
-  Scenario Outline: Compra de articulos con el usuario estandar
+  Scenario: Compra de articulos con el usuario estandar
     Given Autentico en saucedemo con usuario "standard_user" y contraseña "secret_sauce"
-   # When Agrego items al carrito de compras y hago click en ShoppingCart
-   # And  Verifico los productos y ingreso Nombre <firstName>, Apellido <lastName> y codigo postal <postalCode>
-   # Then Verifico que se pueda comprar el producto
-
-    Examples:
-      | username                | password                |  firstName  | lastName  | postalCode |
-      | standard_user           | secret_sauce            |  Juan       |  Velez    | 111223     |
+    When Agrego items al carrito de compras y hago click en ShoppingCart
+      And  Verifico los productos y ingreso Nombre,  Apellido  y codigo postal
+        | username                | password                |  firstName  | lastName  | postalCode |
+        | standard_user           | secret_sauce            |  Juan       |  Velez    | 15241241   |
+    Then Verifico que se pueda comprar el producto

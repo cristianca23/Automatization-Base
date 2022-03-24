@@ -4,6 +4,8 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.serenitybdd.core.pages.WebElementFacade;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
 
 @DefaultUrl("https://www.saucedemo.com/")
 public class SaucedemoLoginPage extends PageObject {
@@ -30,5 +32,11 @@ public class SaucedemoLoginPage extends PageObject {
         txtUsername.sendKeys(strUsuario);
         txtPassword.sendKeys(strPass);
         btnSignIn.click();
+    }
+
+    public void verificarHome (){
+        String label = "PRODUCTS";
+        String strMensaje = HomPpal.getText();
+        assertThat(strMensaje, containsString(label));
     }
 }

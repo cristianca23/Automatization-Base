@@ -7,22 +7,16 @@ Feature: Compra de articulos en la pagina de Saucedemo
   en la aplicación, asi como tambien que pueda agregar y quitar articulos
   de su compra
 
-  @CasoExitoso
-  Scenario Outline: Compra de articulos con el usuario estandar ?[90m# src/test/resources/gherkin/saucedemo.feature:8?[0m
-    ?[36mGiven Autentico en saucedemo con usuario "standard_user" y contraseña "secret_sauce"?[0m
-
-    Examples: 
-
   @Regresion @CasoExitoso
-  Scenario Outline: Compra de articulos con el usuario estandar                          ?[90m# src/test/resources/gherkin/saucedemo.feature:16?[0m
+  Scenario: Compra de articulos con el usuario estandar                                  ?[90m# src/test/resources/gherkin/saucedemo.feature:8?[0m
 
 1 Scenarios (?[33m1 pending?[0m)
-1 Steps (?[33m1 pending?[0m)
-0m10,043s
+4 Steps (?[33m1 pending?[0m, ?[32m3 passed?[0m)
+0m22,338s
 
 cucumber.api.PendingException: TODO: implement me
-	at definitions.StepsDefinitions.autenticoEnSaucedemoConUsuarioYContraseña(StepsDefinitions.java:20)
-	at ?.Autentico en saucedemo con usuario "standard_user" y contraseña "secret_sauce"(src/test/resources/gherkin/saucedemo.feature:9)
+	at definitions.StepsDefinitions.verificoQueSePuedaComprarElProducto(StepsDefinitions.java:68)
+	at ?.Verifico que se pueda comprar el producto(src/test/resources/gherkin/saucedemo.feature:14)
 
 ]]></system-out>
   <system-err><![CDATA[[Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
