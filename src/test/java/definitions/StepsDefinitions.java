@@ -72,5 +72,18 @@ public class StepsDefinitions {
         saucedemoFinalSteps.realizarCompra();
     }
 
+    @When("^Cancelo la order$")
+    public void cancelo_la_order() throws Exception {
+        // Write code here that turns the phrase above into concrete actions
+        saucedemoFinalSteps.cancelarCompra();
+    }
+
+
+    @Then("^Verifico retorno al home en donde no se compra nada$")
+    public void verifico_retorno_al_home_en_donde_no_se_compra_nada() throws Exception {
+        // Write code here that turns the phrase above into concrete actions
+        saucedemoFinalSteps.verificarHomeAfter();
+    }
+
 
 }

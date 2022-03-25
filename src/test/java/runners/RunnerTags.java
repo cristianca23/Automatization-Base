@@ -10,7 +10,12 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 @CucumberOptions (  plugin = {"pretty"},
                     features = "src/test/resources/gherkin", //la feature
                     glue = "definitions", //apunta a la carpeta de definiciones de pasos
-                    snippets= SnippetType.CAMELCASE) //Exporta la función en camelcase
+                    snippets= SnippetType.CAMELCASE //Exporta la función en camelcase
+
+)
+
+
+
 //@CucumberOptions (features = "src/test/resources/features/Nombre.feature", tags = "@CasoAlterno") // Ejecuta solo un escenario de prueba
 public class RunnerTags {
 

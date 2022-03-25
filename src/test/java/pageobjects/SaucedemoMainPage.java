@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
+
 public class SaucedemoMainPage extends PageObject {
 
     //Añado el bolso
@@ -49,6 +50,27 @@ public class SaucedemoMainPage extends PageObject {
     // Thank you for your order
     @FindBy(xpath ="//*[@id='checkout_complete_container']/h2" )
     public WebElementFacade thanks;
+
+    //Cancelo la orden
+    @FindBy(id="cancel")
+    public WebElementFacade bttonCancel;
+
+    //Cancelo item1
+    @FindBy(id="remove-sauce-labs-backpack")
+    public WebElementFacade bttonRemove1;
+
+    //Cancelo item1
+    @FindBy(id="remove-sauce-labs-fleece-jacket")
+    public WebElementFacade bttonRemove2;
+
+    //Boton de retorno a Home
+    @FindBy(id="continue-shopping")
+    public WebElementFacade bttonContinueShopping;
+
+    //Dialogo de CHECKOUT
+    @FindBy(xpath ="//*[@id='header_container']/div[2]/span" )
+    public WebElementFacade tituloCheckout;
+
 
 
 
@@ -110,4 +132,28 @@ public class SaucedemoMainPage extends PageObject {
         String strMensaje = thanks.getText();
         assertThat(strMensaje, containsString(label));
     }
+
+    //Cancelaremos la orden
+    public void cancelarOrden(){
+        bttonCancel.click();
+    }
+
+    //Cancelo el primer item
+    public void cancelarItems(){
+        bttonRemove1.click();
+        bttonRemove2.click();
+    }
+
+    //Boton retorno a Home
+    public void returnContinueShopping(){
+        bttonContinueShopping.click();
+    }
+
+    //Boton de verificar si se esta en el OVERVIEW
+    public void verificarOverview (){
+        String label = "CHECKOUT: OVERVIEW\n";
+        String strMensaje = tituloCheckout.getText();
+        assertThat(strMensaje, containsString(label));
+    }
+
 }
