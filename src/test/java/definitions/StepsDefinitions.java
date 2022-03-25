@@ -9,6 +9,7 @@ import steps.SaucedemoMainSteps;
 import steps.ValidationSteps;
 import cucumber.api.DataTable;
 import steps.SaucedemoDataSteps;
+import steps.SaucedemoFinalSteps;
 
 
 import javax.xml.crypto.Data;
@@ -25,6 +26,9 @@ public class StepsDefinitions {
 
     @Steps
     SaucedemoDataSteps saucedemoDataSteps;
+
+    @Steps
+    SaucedemoFinalSteps saucedemoFinalSteps;
 
     @Given("^Autentico en saucedemo con usuario \"([^\"]*)\" y contraseña \"([^\"]*)\"$")
     public void autenticoEnSaucedemoConUsuarioYContraseña(String Usuario, String Clave) throws Exception {
@@ -46,18 +50,18 @@ public class StepsDefinitions {
     }
 
 
-        @When("^Verifico los productos y ingreso Nombre,  Apellido  y codigo postal$")
-        public void verifico_los_productos_y_ingreso_Nombre_Apellido_y_codigo_postal(DataTable dtDatosForm) throws Exception {
-            // Write code here that turns the phrase above into concrete actions
-            saucedemoMainSteps.checkbox();
-            List<List<String>> data = dtDatosForm.raw();
-            for(int i=1; i<data.size(); i++){
-                saucedemoDataSteps.diligenciarInformacionCompra(data, i);
-                try{
-                    Thread.sleep(5000);
-                }catch(InterruptedException e){
-                }
-        }
+    @When("^Verifico los productos y ingreso Nombre,  Apellido  y codigo postal$")
+    public void verifico_los_productos_y_ingreso_Nombre_Apellido_y_codigo_postal(DataTable dtDatosForm) throws Exception {
+        // Write code here that turns the phrase above into concrete actions
+        saucedemoMainSteps.checkbox();
+        List<List<String>> data = dtDatosForm.raw();
+        for(int i=1; i<data.size(); i++){
+            saucedemoDataSteps.diligenciarInformacionCompra(data, i);
+            try{
+                Thread.sleep(5000);
+            }catch(InterruptedException e){
+            }
+    }
 
 
     }
@@ -65,7 +69,7 @@ public class StepsDefinitions {
     @Then("^Verifico que se pueda comprar el producto$")
     public void verificoQueSePuedaComprarElProducto() throws Exception {
         // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        saucedemoFinalSteps.realizarCompra();
     }
 
 

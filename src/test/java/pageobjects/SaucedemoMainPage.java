@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.WebElement;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 public class SaucedemoMainPage extends PageObject {
 
@@ -40,6 +41,17 @@ public class SaucedemoMainPage extends PageObject {
     //Boton Continuar
     @FindBy(id="continue")
     public WebElementFacade bttonContinue;
+
+    //Boton Finish
+    @FindBy(id="finish")
+    public WebElementFacade bttonFinish;
+
+    // Thank you for your order
+    @FindBy(xpath ="//*[@id='checkout_complete_container']/h2" )
+    public WebElementFacade thanks;
+
+
+
 
     // SE CREAN METODOS PARA INTERACTUAR CON CADA OBJETO DE LA PAGINA
 
@@ -87,9 +99,15 @@ public class SaucedemoMainPage extends PageObject {
         bttonContinue.click();
     }
 
+    //Dar click en el boton Finish
+    public void checkFinish(){
+        bttonFinish.click();
+    }
 
-
-
-
-
+    //Comparar dialogos
+    public void verificarOrden (){
+        String label = "THANK YOU FOR YOUR ORDER";
+        String strMensaje = thanks.getText();
+        assertThat(strMensaje, containsString(label));
+    }
 }
